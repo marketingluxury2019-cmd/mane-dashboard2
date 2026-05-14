@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/meta", "destination": "/api/meta" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
