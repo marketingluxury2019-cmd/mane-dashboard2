@@ -1,24 +1,42 @@
-export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  if (req.method === 'OPTIONS') return res.status(200).end();
+export const config = { runtime: 'edge' };
+
+export default async function handler(req) {
+  const headers = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type'
+  };
+
+  if (req.method === 'OPTIONS') return new Response(null, { status: 200, headers });
 
   const TOKEN = process.env.META_ACCESS_TOKEN;
-  const VER = 'v19.0';
+  if (!TOKEN) return new Response(JSON.stringify({ error: { message: 'No META_ACCESS_TOKEN' } }), { status: 500, headers });
 
-  if (!TOKEN) return res.status(500).json({ error: { message: 'META_ACCESS_TOKEN not configured' } });
+  const url = new URL(req.url);
+  const path = url.searchParams.get('path');
+  const method = url.searchParams.get('method') || 'GET';
+  if (!path) return new Response(JSON.stringify({ error: { message: 'No path' } }), { status: 400, headers });
 
-  const { path, method = 'GET', ...qparams } = req.query;
-  if (!path) return res.status(400).json({ error: { message: 'path required' } });
+  const params = {};
+  url.searchParams.forEach((v, k) => { if (k !== 'path' && k !== 'method') params[k] = v; });
 
-  const baseUrl = `https://graph.facebook.com/${VER}/${path}`;
+  const graphUrl = `https://graph.facebook.com/v19.0/${path}`;
 
   try {
-    let response;
+    let res;
     if (method === 'GET') {
-      const params = new URLSearchParams({ ...qparams, access_token: TOKEN });
-      response = await fetch(`${baseUrl}?${params}`);
+      const qs = new URLSearchParams({ ...params, access_token: TOKEN });
+      res = await fetch(`${graphUrl}?${qs}`);
     } else {
-      const body = req.body || {};
-      const params =
+      let body = {};
+      try { body = await req.json(); } catch(e) {}
+      const ps = new URLSearchParams({ ...body, access_token: TOKEN });
+      res = await fetch(graphUrl, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: ps.toString() });
+    }
+    const data = await res.json();
+    return new Response(JSON.stringify(data), { status: 200, headers });
+  } catch(e) {
+    return new Response(JSON.stringify({ error: { message: e.message } }), { status: 500, headers });
+  }
+}
