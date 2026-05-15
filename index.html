@@ -18,52 +18,34 @@ nav{width:54px;background:var(--bg2);border-right:0.5px solid var(--brd);display
 .nb:hover{background:var(--bg3);color:var(--t2)}.nb.on{background:rgba(91,142,240,.15);color:var(--blue)}
 .nb .badge{position:absolute;top:5px;right:5px;width:7px;height:7px;background:var(--red);border-radius:50%;border:1.5px solid var(--bg2)}
 .nsep{width:28px;height:0.5px;background:var(--brd);margin:4px 0}
-.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
-.topbar{height:52px;background:var(--bg2);border-bottom:0.5px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 18px;gap:12px;flex-shrink:0}
-.tbl{display:flex;align-items:center;gap:10px}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+/* TOPBAR */
+.topbar{background:var(--bg2);border-bottom:0.5px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 18px;gap:10px;flex-shrink:0;height:52px;flex-wrap:nowrap}
+.tbl{display:flex;align-items:center;gap:10px;min-width:0;flex-shrink:0}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:blink 2s infinite;flex-shrink:0}
-.dot.loading{background:var(--amber);box-shadow:0 0 8px var(--amber)}
-.dot.error{background:var(--red);box-shadow:none;animation:none}
+.dot.loading{background:var(--amber);box-shadow:0 0 8px var(--amber)}.dot.error{background:var(--red);box-shadow:none;animation:none}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
-.ptitle{font-size:14px;font-weight:500}.psub{font-size:10px;color:var(--t3);font-family:'IBM Plex Mono',monospace;margin-top:1px}
-.tbr{display:flex;align-items:center;gap:8px}
+.ptitle{font-size:14px;font-weight:500;white-space:nowrap}.psub{font-size:10px;color:var(--t3);font-family:'IBM Plex Mono',monospace;margin-top:1px;white-space:nowrap}
+.tbr{display:flex;align-items:center;gap:6px;flex-shrink:0}
+/* DATE CONTROLS */
+.date-controls{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .presets{display:flex;background:var(--bg3);border-radius:8px;padding:2px;gap:1px}
-.pbtn{padding:4px 10px;border-radius:6px;border:none;background:transparent;color:var(--t3);font-size:11px;cursor:pointer;font-family:inherit;transition:all .15s}
+.pbtn{padding:4px 9px;border-radius:6px;border:none;background:transparent;color:var(--t3);font-size:11px;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap}
 .pbtn.on{background:var(--blue);color:#fff}
-.rbtn{display:flex;align-items:center;gap:5px;padding:6px 12px;border:0.5px solid var(--brd2);border-radius:8px;background:transparent;color:var(--t2);font-size:11px;cursor:pointer;font-family:inherit;transition:all .15s}
+.date-sep{color:var(--t3);font-size:11px;flex-shrink:0}
+.date-input{background:var(--bg3);border:0.5px solid var(--brd2);border-radius:7px;color:var(--t1);font-size:11px;padding:5px 8px;outline:none;width:110px;font-family:inherit}
+.date-input:focus{border-color:var(--blue)}
+input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.5);cursor:pointer}
+.rbtn{display:flex;align-items:center;gap:5px;padding:5px 11px;border:0.5px solid var(--brd2);border-radius:8px;background:transparent;color:var(--t2);font-size:11px;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap}
 .rbtn:hover{border-color:var(--blue);color:var(--blue)}.rbtn.spin svg{animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .progwrap{height:2px;background:var(--brd);flex-shrink:0}
 .prog{height:100%;background:linear-gradient(90deg,var(--blue),var(--green));transition:width 1s linear;width:100%}
-.sbar{padding:7px 18px;font-size:11px;font-family:'IBM Plex Mono',monospace;display:flex;align-items:center;gap:8px;flex-shrink:0;min-height:32px;transition:all .3s}
+.sbar{padding:7px 18px;font-size:11px;font-family:'IBM Plex Mono',monospace;display:flex;align-items:center;gap:8px;flex-shrink:0;min-height:32px}
 .sbar.ok{background:rgba(45,212,160,.06);color:var(--green)}.sbar.loading{background:rgba(91,142,240,.06);color:var(--blue)}.sbar.error{background:rgba(240,98,114,.06);color:var(--red)}.sbar.idle{background:var(--bg3);color:var(--t3)}
 .cd{margin-left:auto;font-size:10px;color:var(--t3)}
 .content{flex:1;overflow-y:auto;padding:18px}
 .page{display:none}.page.on{display:block}
-/* Auto Pause Banner */
-.autopause-banner{background:rgba(240,98,114,.08);border:0.5px solid rgba(240,98,114,.3);border-radius:10px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:flex-start;gap:12px}
-.autopause-banner .ab-icon{font-size:20px;flex-shrink:0;margin-top:1px}
-.autopause-banner .ab-body{flex:1}
-.autopause-banner .ab-title{font-size:12px;font-weight:600;color:var(--red);margin-bottom:4px}
-.autopause-banner .ab-items{display:flex;flex-direction:column;gap:4px}
-.autopause-banner .ab-item{font-size:11px;color:var(--t2);display:flex;align-items:center;gap:6px}
-.autopause-banner .ab-item .ab-dot{width:5px;height:5px;background:var(--red);border-radius:50%;flex-shrink:0}
-.autopause-badge{background:rgba(240,98,114,.12);color:var(--red);font-size:10px;font-weight:500;padding:2px 7px;border-radius:20px;font-family:'IBM Plex Mono',monospace;white-space:nowrap}
-/* Auto pause toggle */
-.ap-toggle-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:0.5px solid rgba(255,255,255,.04)}
-.toggle{position:relative;width:36px;height:20px;cursor:pointer}
-.toggle input{opacity:0;width:0;height:0}
-.toggle-slider{position:absolute;inset:0;background:var(--bg4);border-radius:20px;transition:.2s;border:0.5px solid var(--brd)}
-.toggle-slider:before{content:'';position:absolute;width:14px;height:14px;left:3px;bottom:2px;background:var(--t3);border-radius:50%;transition:.2s}
-.toggle input:checked + .toggle-slider{background:var(--red)}
-.toggle input:checked + .toggle-slider:before{transform:translateX(16px);background:#fff}
-/* Log */
-.log-list{display:flex;flex-direction:column;gap:6px;margin-top:10px}
-.log-item{background:var(--bg2);border:0.5px solid var(--brd);border-radius:8px;padding:10px 13px;display:flex;align-items:flex-start;gap:10px}
-.log-item .li-icon{font-size:14px;flex-shrink:0;margin-top:1px}
-.log-item .li-body{flex:1;min-width:0}
-.log-item .li-title{font-size:12px;font-weight:500;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.log-item .li-meta{font-size:10px;color:var(--t3);margin-top:2px;font-family:'IBM Plex Mono',monospace}
 /* KPI */
 .hrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
 .hcard{border-radius:12px;padding:15px 17px}
@@ -93,6 +75,28 @@ nav{width:54px;background:var(--bg2);border-right:0.5px solid var(--brd);display
 .leg{display:flex;gap:12px;margin-bottom:7px;flex-wrap:wrap}
 .leg span{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t2)}
 .legdot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+/* MONTH COMPARE */
+.compare-controls{background:var(--bg2);border:0.5px solid var(--brd);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.compare-controls h4{font-size:11px;font-weight:500;color:var(--t1);margin-bottom:12px}
+.compare-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.compare-label{font-size:11px;color:var(--t2);width:60px;flex-shrink:0}
+.month-select{background:var(--bg3);border:0.5px solid var(--brd2);border-radius:7px;color:var(--t1);font-size:12px;padding:6px 10px;outline:none;font-family:inherit;cursor:pointer;min-width:140px}
+.month-select:focus{border-color:var(--blue)}
+.compare-btn{padding:7px 16px;background:var(--blue);border:none;border-radius:7px;color:#fff;font-size:12px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .15s}
+.compare-btn:hover{opacity:.85}
+.compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:14px}
+.compare-card{background:var(--bg3);border:0.5px solid var(--brd);border-radius:10px;padding:12px 14px}
+.cc-label{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;font-weight:500}
+.cc-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:4px}
+.cc-period{font-size:9px;color:var(--t3)}
+.cc-val{font-size:14px;font-weight:500;font-family:'IBM Plex Mono',monospace;color:var(--t1)}
+.cc-pct{font-size:12px;font-weight:600;font-family:'IBM Plex Mono',monospace;padding:2px 7px;border-radius:5px}
+.cc-pct.up{background:rgba(45,212,160,.15);color:var(--green)}
+.cc-pct.down{background:rgba(240,98,114,.15);color:var(--red)}
+.cc-pct.neu{background:rgba(144,144,168,.15);color:var(--t2)}
+.cc-bar{height:4px;background:var(--brd);border-radius:2px;margin-top:8px;overflow:hidden}
+.cc-bar-inner{height:100%;border-radius:2px;transition:width .6s ease}
+/* TABLE */
 .tcard{background:var(--bg2);border:0.5px solid var(--brd);border-radius:12px;overflow:hidden;margin-bottom:14px}
 .thr{display:flex;align-items:center;justify-content:space-between;padding:10px 15px;border-bottom:0.5px solid var(--brd)}
 .thr h4{font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.05em;font-weight:500}
@@ -108,20 +112,24 @@ tbody tr:hover td{background:rgba(255,255,255,.015)}
 .pill{display:inline-block;padding:1px 7px;border-radius:20px;font-size:10px;font-weight:500;font-family:'IBM Plex Mono',monospace}
 .pg{background:rgba(45,212,160,.12);color:var(--green)}.pa{background:rgba(244,185,66,.12);color:var(--amber)}
 .pb{background:rgba(91,142,240,.12);color:var(--blue)}.pr{background:rgba(240,98,114,.12);color:var(--red)}
+/* BUTTONS */
 .abtn{padding:3px 8px;border-radius:5px;border:none;font-size:10px;font-weight:500;cursor:pointer;transition:all .15s;font-family:inherit;display:inline-flex;align-items:center;gap:4px}
 .abtn:disabled{opacity:.4;cursor:not-allowed}
 .ab-p{background:rgba(244,185,66,.12);color:var(--amber)}.ab-p:hover:not(:disabled){background:rgba(244,185,66,.25)}
 .ab-o{background:rgba(45,212,160,.12);color:var(--green)}.ab-o:hover:not(:disabled){background:rgba(45,212,160,.25)}
 .ab-s{background:rgba(91,142,240,.12);color:var(--blue)}.ab-s:hover:not(:disabled){background:rgba(91,142,240,.25)}
 .bspin{display:inline-block;width:9px;height:9px;border:1.5px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin .6s linear infinite}
+/* ANALYTICS */
 .ac{border-radius:12px;padding:12px 14px;margin-bottom:7px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .ac.wi{background:rgba(45,212,160,.06);border:0.5px solid rgba(45,212,160,.2)}
 .ac.wa{background:rgba(244,185,66,.06);border:0.5px solid rgba(244,185,66,.2)}
 .ac.lo{background:rgba(240,98,114,.06);border:0.5px solid rgba(240,98,114,.2)}
+/* ALERTS */
 .asec{background:var(--bg2);border:0.5px solid var(--brd);border-radius:12px;overflow:hidden;margin-bottom:10px}
 .asechdr{padding:10px 13px;border-bottom:0.5px solid var(--brd);display:flex;align-items:center;justify-content:space-between}
 .arow{padding:9px 13px;border-bottom:0.5px solid rgba(255,255,255,.03);display:flex;align-items:center;justify-content:space-between;gap:10px}
 .arow:last-child{border-bottom:none}
+/* AUTO PAUSE */
 .bg{background:var(--bg2);border:0.5px solid var(--brd);border-radius:12px;overflow:hidden;margin-bottom:13px}
 .brow{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:0.5px solid rgba(255,255,255,.03)}
 .brow:last-child{border-bottom:none}
@@ -130,6 +138,22 @@ tbody tr:hover td{background:rgba(255,255,255,.015)}
 .binp:focus{border-color:var(--blue)}
 .sbtn{padding:9px 20px;background:var(--blue);border:none;border-radius:8px;color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .15s;margin-right:10px}
 .sbtn:hover{opacity:.85}
+.ap-toggle-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:0.5px solid rgba(255,255,255,.04)}
+.toggle{position:relative;width:36px;height:20px;cursor:pointer}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:var(--bg4);border-radius:20px;transition:.2s;border:0.5px solid var(--brd)}
+.toggle-slider:before{content:'';position:absolute;width:14px;height:14px;left:3px;bottom:2px;background:var(--t3);border-radius:50%;transition:.2s}
+.toggle input:checked + .toggle-slider{background:var(--red)}
+.toggle input:checked + .toggle-slider:before{transform:translateX(16px);background:#fff}
+.log-list{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.log-item{background:var(--bg2);border:0.5px solid var(--brd);border-radius:8px;padding:10px 13px;display:flex;align-items:flex-start;gap:10px}
+.li-body{flex:1;min-width:0}
+.li-title{font-size:12px;font-weight:500;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.li-meta{font-size:10px;color:var(--t3);margin-top:2px;font-family:'IBM Plex Mono',monospace}
+.autopause-badge{background:rgba(240,98,114,.12);color:var(--red);font-size:10px;font-weight:500;padding:2px 7px;border-radius:20px;font-family:'IBM Plex Mono',monospace;white-space:nowrap}
+/* SETTINGS */
+.bg2r{background:var(--bg2);border:0.5px solid var(--brd);border-radius:12px;overflow:hidden;margin-bottom:13px}
+/* MODAL */
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
 .modal-bg.open{display:flex}
 .modal{background:var(--bg2);border:0.5px solid var(--brd2);border-radius:16px;width:100%;max-width:400px}
@@ -159,7 +183,7 @@ tbody tr:hover td{background:rgba(255,255,255,.015)}
 .sechdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
 .sectitle{font-size:14px;font-weight:500}
 .addbtn{display:flex;align-items:center;gap:6px;padding:7px 13px;background:var(--blue);border:none;border-radius:8px;color:#fff;font-size:12px;font-weight:500;cursor:pointer;font-family:inherit}
-@media(max-width:640px){.cgrid,.hrow{grid-template-columns:1fr}.srow{grid-template-columns:1fr 1fr}.kgrid{grid-template-columns:repeat(2,1fr)}.tbr .presets{display:none}}
+@media(max-width:768px){.cgrid,.hrow{grid-template-columns:1fr}.srow{grid-template-columns:1fr 1fr}.kgrid{grid-template-columns:repeat(2,1fr)}.date-controls .presets{display:none}.date-input{width:95px}}
 </style>
 </head>
 <body>
@@ -167,42 +191,50 @@ tbody tr:hover td{background:rgba(255,255,255,.015)}
 <nav>
   <div class="nlogo">F</div>
   <button class="nb on" data-pg="dashboard" title="Dashboard">📊</button>
+  <button class="nb" data-pg="compare" title="เปรียบเทียบเดือน">📅</button>
   <button class="nb" data-pg="campaigns" title="Campaigns">📣</button>
   <button class="nb" data-pg="analytics" title="Analytics">🤖</button>
   <div class="nsep"></div>
   <button class="nb" data-pg="alerts" title="Alerts">🔔<span class="badge" id="alertBadge" style="display:none"></span></button>
-  <button class="nb" data-pg="autopause" title="Auto Pause">🤖<span class="badge" id="apBadge" style="display:none"></span></button>
+  <button class="nb" data-pg="autopause" title="Auto Pause">⏸<span class="badge" id="apBadge" style="display:none"></span></button>
   <button class="nb" data-pg="settings" title="Settings">⚙️</button>
 </nav>
+
 <div class="main">
   <div class="topbar">
     <div class="tbl">
       <div class="dot" id="liveDot"></div>
       <div>
         <div class="ptitle" id="pgTitle">Dashboard</div>
-        <div class="psub">Mane 2024 · act_418998227170217 · Meta API Live</div>
+        <div class="psub">Mane 2024 · act_418998227170217</div>
       </div>
     </div>
     <div class="tbr">
-      <div class="presets">
-        <button class="pbtn" onclick="setPreset(this,'today')">วันนี้</button>
-        <button class="pbtn on" onclick="setPreset(this,'7d')">7 วัน</button>
-        <button class="pbtn" onclick="setPreset(this,'14d')">14 วัน</button>
-        <button class="pbtn" onclick="setPreset(this,'30d')">30 วัน</button>
+      <div class="date-controls">
+        <div class="presets">
+          <button class="pbtn" onclick="setPreset(this,'today')">วันนี้</button>
+          <button class="pbtn on" onclick="setPreset(this,'7d')">7 วัน</button>
+          <button class="pbtn" onclick="setPreset(this,'14d')">14 วัน</button>
+          <button class="pbtn" onclick="setPreset(this,'30d')">30 วัน</button>
+          <button class="pbtn" onclick="setPreset(this,'month')">เดือนนี้</button>
+        </div>
+        <input type="date" class="date-input" id="df" onchange="onDateChange()">
+        <span class="date-sep">→</span>
+        <input type="date" class="date-input" id="dt" onchange="onDateChange()">
       </div>
       <button class="rbtn" id="refBtn" onclick="fetchAll()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg>
         Refresh
       </button>
     </div>
   </div>
   <div class="progwrap"><div class="prog" id="prog"></div></div>
   <div class="sbar idle" id="sbar"><span id="sbarTxt">กำลังโหลด...</span><span class="cd" id="cd" style="display:none">Auto-refresh ใน <b id="cdt">5:00</b></span></div>
+
   <div class="content">
 
     <!-- DASHBOARD -->
     <div class="page on" id="pg-dashboard">
-      <div id="apDashBanner" style="display:none"></div>
       <div class="hrow">
         <div class="hcard g"><div class="hlbl">🛒 Purchases on Meta</div><div class="hval sk" id="kPurch" style="min-width:50px;min-height:30px">—</div><div class="hsub">offsite_conversion.fb_pixel_purchase</div></div>
         <div class="hcard a"><div class="hlbl">💰 Cost per Purchase</div><div class="hval sk" id="kCPP" style="min-width:90px;min-height:30px">—</div><div class="hsub">Spend รวม ÷ Purchases</div></div>
@@ -219,8 +251,50 @@ tbody tr:hover td{background:rgba(255,255,255,.015)}
           <th>Campaign</th><th class="tdn">Spend</th><th class="tdn">CTR</th><th class="tdn">CPM</th>
           <th class="tdn">Purchase</th><th class="tdn">CPP</th><th class="tdn">Leads</th><th class="tdn">Inbox</th>
           <th>Status</th><th>Action</th>
-        </tr></thead><tbody id="dashBody"><tr><td colspan="10" style="padding:28px;text-align:center;color:var(--t3);font-family:'IBM Plex Mono',monospace;font-size:11px">กำลังดึงข้อมูลจาก Meta API...</td></tr></tbody></table></div>
+        </tr></thead><tbody id="dashBody"><tr><td colspan="10" style="padding:28px;text-align:center;color:var(--t3);font-size:11px">กำลังดึงข้อมูล...</td></tr></tbody></table></div>
       </div>
+    </div>
+
+    <!-- MONTH COMPARE -->
+    <div class="page" id="pg-compare">
+      <div style="font-size:14px;font-weight:500;margin-bottom:4px">📅 เปรียบเทียบรายเดือน</div>
+      <div style="font-size:12px;color:var(--t3);margin-bottom:16px">เลือก 2 ช่วงเวลาเพื่อเปรียบเทียบ KPIs พร้อม % การเปลี่ยนแปลง</div>
+
+      <div class="compare-controls">
+        <h4>เลือกช่วงเวลาที่ต้องการเปรียบเทียบ</h4>
+        <div class="compare-row">
+          <div class="compare-label" style="color:var(--blue);font-weight:500">📘 ช่วง A</div>
+          <input type="date" class="date-input" id="cmpA_from" style="width:120px">
+          <span class="date-sep">→</span>
+          <input type="date" class="date-input" id="cmpA_to" style="width:120px">
+          <div style="display:flex;gap:5px;margin-left:4px">
+            <button onclick="setQuickMonth('A','prev')" style="padding:4px 9px;background:var(--bg3);border:0.5px solid var(--brd);border-radius:6px;color:var(--t2);font-size:10px;cursor:pointer;font-family:inherit">เดือนที่แล้ว</button>
+            <button onclick="setQuickMonth('A','this')" style="padding:4px 9px;background:var(--bg3);border:0.5px solid var(--brd);border-radius:6px;color:var(--t2);font-size:10px;cursor:pointer;font-family:inherit">เดือนนี้</button>
+          </div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label" style="color:var(--amber);font-weight:500">📙 ช่วง B</div>
+          <input type="date" class="date-input" id="cmpB_from" style="width:120px">
+          <span class="date-sep">→</span>
+          <input type="date" class="date-input" id="cmpB_to" style="width:120px">
+          <div style="display:flex;gap:5px;margin-left:4px">
+            <button onclick="setQuickMonth('B','prev2')" style="padding:4px 9px;background:var(--bg3);border:0.5px solid var(--brd);border-radius:6px;color:var(--t2);font-size:10px;cursor:pointer;font-family:inherit">2 เดือนที่แล้ว</button>
+            <button onclick="setQuickMonth('B','prev')" style="padding:4px 9px;background:var(--bg3);border:0.5px solid var(--brd);border-radius:6px;color:var(--t2);font-size:10px;cursor:pointer;font-family:inherit">เดือนที่แล้ว</button>
+          </div>
+        </div>
+        <button class="compare-btn" onclick="runCompare()">🔍 เปรียบเทียบ</button>
+      </div>
+
+      <div id="compareResult" style="display:none">
+        <div style="font-size:12px;font-weight:500;color:var(--t2);margin-bottom:10px" id="compareTitle"></div>
+        <div class="compare-grid" id="compareGrid"></div>
+        <div style="margin-top:16px" id="compareChartWrap">
+          <div class="cbox"><h4>เปรียบเทียบ Spend & Purchases</h4>
+            <div style="position:relative;height:180px"><canvas id="cmpChart"></canvas></div>
+          </div>
+        </div>
+      </div>
+      <div id="compareLoading" style="display:none;padding:32px;text-align:center;font-size:12px;color:var(--blue);font-family:'IBM Plex Mono',monospace">⏳ กำลังดึงข้อมูลเปรียบเทียบ...</div>
     </div>
 
     <!-- CAMPAIGNS -->
@@ -245,36 +319,22 @@ tbody tr:hover td{background:rgba(255,255,255,.015)}
 
     <!-- AUTO PAUSE -->
     <div class="page" id="pg-autopause">
-      <div style="font-size:14px;font-weight:500;margin-bottom:4px">🤖 Auto Pause</div>
+      <div style="font-size:14px;font-weight:500;margin-bottom:4px">⏸ Auto Pause</div>
       <div style="font-size:12px;color:var(--t3);margin-bottom:16px">ระบบตรวจ Campaign ทุก 5 นาที — ถ้า Spend เกิน threshold แต่ไม่มี Purchase จะปิดอัตโนมัติ</div>
-
       <div class="bg">
         <div class="ap-toggle-row">
-          <div>
-            <div class="blbl">เปิดใช้งาน Auto Pause</div>
-            <div class="bdesc">ตรวจสอบทุก 5 นาทีพร้อมกับ Auto-refresh</div>
-          </div>
+          <div><div class="blbl">เปิดใช้งาน Auto Pause</div><div class="bdesc">ตรวจสอบทุก 5 นาทีพร้อมกับ Auto-refresh</div></div>
           <label class="toggle"><input type="checkbox" id="apEnabled" onchange="saveAPSettings()"><span class="toggle-slider"></span></label>
         </div>
-        <div class="brow">
-          <div><div class="blbl">Spend Threshold (฿)</div><div class="bdesc">ถ้า Spend เกินนี้และ Purchase = 0 → Pause</div></div>
-          <input type="number" class="binp" id="apThreshold" value="50000" onchange="saveAPSettings()">
-        </div>
-        <div class="brow">
-          <div><div class="blbl">Leads Threshold</div><div class="bdesc">อนุโลมถ้ามี Leads เกินนี้ (ไม่ Pause ถ้า Leads ดี)</div></div>
-          <input type="number" class="binp" id="apLeadsMin" value="5" onchange="saveAPSettings()">
-        </div>
+        <div class="brow"><div><div class="blbl">Spend Threshold (฿)</div><div class="bdesc">ถ้า Spend เกินนี้และ Purchase = 0 → Pause</div></div><input type="number" class="binp" id="apThreshold" value="50000" onchange="saveAPSettings()"></div>
+        <div class="brow"><div><div class="blbl">Leads Min</div><div class="bdesc">อนุโลมถ้า Leads เกินนี้ (ไม่ Pause)</div></div><input type="number" class="binp" id="apLeadsMin" value="5" onchange="saveAPSettings()"></div>
       </div>
-
-      <div style="background:rgba(240,98,114,.08);border:0.5px solid rgba(240,98,114,.2);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:var(--t2);line-height:1.7">
+      <div style="background:rgba(240,98,114,.08);border:0.5px solid rgba(240,98,114,.2);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:var(--t2);line-height:1.8">
         <b style="color:var(--red)">⚠️ เงื่อนไขที่จะ Pause:</b><br>
-        Spend &gt; <b id="apThresholdDisplay">฿50,000</b> <span style="color:var(--t3)">AND</span> Purchase = 0 <span style="color:var(--t3)">AND</span> Leads &lt; <b id="apLeadsDisplay">5</b>
+        Spend &gt; <b id="apThresholdDisplay">฿50,000</b> AND Purchase = 0 AND Leads &lt; <b id="apLeadsDisplay">5</b>
       </div>
-
       <div style="font-size:12px;font-weight:500;margin-bottom:10px;color:var(--t2)">ประวัติการ Auto Pause</div>
-      <div id="apLog">
-        <div style="padding:24px;text-align:center;font-size:11px;color:var(--t3);font-family:'IBM Plex Mono',monospace">ยังไม่มีประวัติ</div>
-      </div>
+      <div id="apLog"><div style="padding:24px;text-align:center;font-size:11px;color:var(--t3)">ยังไม่มีประวัติ</div></div>
     </div>
 
     <!-- SETTINGS -->
@@ -300,19 +360,17 @@ tbody tr:hover td{background:rgba(255,255,255,.015)}
     </div>
   </div>
 </div>
-
 <div class="modal-bg" id="modal-create" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="mhdr"><h3>Create Campaign</h3><button class="mclose" onclick="closeModal()">✕</button></div>
     <div class="mbody">
-      <div class="mf"><label class="ml">Campaign Name</label><input class="mi" id="cname" placeholder="e.g. BB Set Sales May 2026"></div>
+      <div class="mf"><label class="ml">Campaign Name</label><input class="mi" id="cname" placeholder="e.g. BB Set Sales"></div>
       <div class="mf"><label class="ml">Objective</label><select class="ms" id="cobj"><option value="OUTCOME_SALES">Sales</option><option value="OUTCOME_LEADS">Leads</option><option value="OUTCOME_TRAFFIC">Traffic</option><option value="OUTCOME_AWARENESS">Awareness</option></select></div>
       <div class="mf"><label class="ml">Daily Budget (฿)</label><input class="mi" type="number" id="cbudget" placeholder="5000"></div>
       <div class="mftr"><button class="mcc" onclick="closeModal()">Cancel</button><button class="msub" id="createSub" onclick="doCreate()">Create Campaign</button></div>
     </div>
   </div>
 </div>
-
 <div id="toast"></div>
 
 <script>
@@ -322,131 +380,74 @@ let BENCH = {roas_good:3,roas_ok:1.5,cpp_good:10000,cpp_ok:20000,ctr_good:0.02,c
 let AP = {enabled:false, threshold:50000, leads_min:5};
 let AP_LOG = [];
 let CAMPS = [], DAILY = [], CHARTS = {}, SCALE_C = null, CD_SEC = 300, CD_IV = null;
-const PAGE_TITLES = {dashboard:'Dashboard',campaigns:'Campaigns',analytics:'AI Analytics',alerts:'Alerts',autopause:'Auto Pause',settings:'Settings'};
+let CMP_CHART = null;
+const PAGE_TITLES = {dashboard:'Dashboard',compare:'เปรียบเทียบเดือน',campaigns:'Campaigns',analytics:'AI Analytics',alerts:'Alerts',autopause:'Auto Pause',settings:'Settings'};
 
-// Load settings
 try { const b = localStorage.getItem('bench'); if(b) BENCH={...BENCH,...JSON.parse(b)}; } catch(e) {}
 try { const a = localStorage.getItem('ap'); if(a) AP={...AP,...JSON.parse(a)}; } catch(e) {}
 try { const l = localStorage.getItem('ap_log'); if(l) AP_LOG=JSON.parse(l); } catch(e) {}
 
-function saveAPSettings() {
-  AP.enabled = document.getElementById('apEnabled').checked;
-  AP.threshold = +document.getElementById('apThreshold').value || 50000;
-  AP.leads_min = +document.getElementById('apLeadsMin').value || 5;
-  localStorage.setItem('ap', JSON.stringify(AP));
-  document.getElementById('apThresholdDisplay').textContent = thb(AP.threshold);
-  document.getElementById('apLeadsDisplay').textContent = AP.leads_min;
-  showToast(AP.enabled ? '🤖 Auto Pause เปิดแล้ว' : 'Auto Pause ปิดแล้ว', 'ok');
+// ── DATE INIT ──
+function initDates() {
+  const now = new Date();
+  const to = now.toISOString().slice(0,10);
+  const from = new Date(now - 7*86400000).toISOString().slice(0,10);
+  document.getElementById('df').value = from;
+  document.getElementById('dt').value = to;
+
+  // Init compare dates
+  const y = now.getFullYear(), m = now.getMonth();
+  const thisFrom = new Date(y, m, 1).toISOString().slice(0,10);
+  const thisTo = to;
+  const prevFrom = new Date(y, m-1, 1).toISOString().slice(0,10);
+  const prevTo = new Date(y, m, 0).toISOString().slice(0,10);
+  document.getElementById('cmpA_from').value = thisFrom;
+  document.getElementById('cmpA_to').value = thisTo;
+  document.getElementById('cmpB_from').value = prevFrom;
+  document.getElementById('cmpB_to').value = prevTo;
 }
 
-// ── AUTO PAUSE ENGINE ──
-async function runAutoPause() {
-  if (!AP.enabled || !CAMPS.length) return;
-  const tosPause = CAMPS.filter(c =>
-    c.status === 'ACTIVE' &&
-    c.spend > AP.threshold &&
-    c.purchase === 0 &&
-    (c.leads || 0) < AP.leads_min
-  );
-  if (!tosPause.length) return;
-
-  let pausedCount = 0;
-  for (const c of tosPause) {
-    try {
-      await meta(c.id, 'POST', { status: 'PAUSED' });
-      c.status = 'PAUSED';
-      const logEntry = {
-        id: c.id, name: c.name, spend: c.spend, leads: c.leads || 0,
-        time: new Date().toLocaleString('th-TH'), threshold: AP.threshold
-      };
-      AP_LOG.unshift(logEntry);
-      if (AP_LOG.length > 50) AP_LOG.pop();
-      localStorage.setItem('ap_log', JSON.stringify(AP_LOG));
-      pausedCount++;
-      showToast(`🤖 Auto Paused: ${c.name.slice(0,35)}`, 'ok');
-    } catch(e) { console.error('AutoPause failed:', c.name, e.message); }
+function setQuickMonth(slot, which) {
+  const now = new Date();
+  const y = now.getFullYear(), m = now.getMonth();
+  let from, to;
+  if (which === 'this') {
+    from = new Date(y, m, 1).toISOString().slice(0,10);
+    to = now.toISOString().slice(0,10);
+  } else if (which === 'prev') {
+    from = new Date(y, m-1, 1).toISOString().slice(0,10);
+    to = new Date(y, m, 0).toISOString().slice(0,10);
+  } else if (which === 'prev2') {
+    from = new Date(y, m-2, 1).toISOString().slice(0,10);
+    to = new Date(y, m-1, 0).toISOString().slice(0,10);
   }
-
-  if (pausedCount > 0) {
-    renderDashboard();
-    renderCamps();
-    renderAPLog();
-    document.getElementById('apBadge').style.display = 'block';
-    // Show banner on dashboard
-    renderAPDashBanner(AP_LOG.slice(0, pausedCount));
-  }
+  document.getElementById(`cmp${slot}_from`).value = from;
+  document.getElementById(`cmp${slot}_to`).value = to;
 }
 
-function renderAPDashBanner(items) {
-  const el = document.getElementById('apDashBanner');
-  if (!items.length) { el.style.display='none'; return; }
-  el.style.display = 'block';
-  el.innerHTML = `<div class="autopause-banner">
-    <div class="ab-icon">🤖</div>
-    <div class="ab-body">
-      <div class="ab-title">Auto Pause ทำงานแล้ว — ${items.length} campaigns ถูกปิดอัตโนมัติ</div>
-      <div class="ab-items">
-        ${items.map(i=>`<div class="ab-item"><span class="ab-dot"></span><span>${i.name.slice(0,50)} · Spend ${thb(i.spend)} · 0 Purchases · ${i.time}</span></div>`).join('')}
-      </div>
-    </div>
-  </div>`;
-}
-
-function renderAPLog() {
-  const el = document.getElementById('apLog');
-  if (!AP_LOG.length) {
-    el.innerHTML = '<div style="padding:24px;text-align:center;font-size:11px;color:var(--t3);font-family:\'IBM Plex Mono\',monospace">ยังไม่มีประวัติ</div>';
-    return;
-  }
-  el.innerHTML = `<div class="log-list">${AP_LOG.map(l=>`
-    <div class="log-item">
-      <div class="li-icon">⏸</div>
-      <div class="li-body">
-        <div class="li-title">${l.name}</div>
-        <div class="li-meta">Spend ${thb(l.spend)} · ${l.leads} Leads · Paused เมื่อ ${l.time}</div>
-      </div>
-      <span class="autopause-badge">AUTO PAUSED</span>
-    </div>`).join('')}</div>`;
-}
-
-// ── NAV ──
-document.querySelectorAll('.nb[data-pg]').forEach(b => b.addEventListener('click', () => goPage(b.dataset.pg)));
-function goPage(pg) {
-  document.querySelectorAll('.nb').forEach(b => b.classList.remove('on'));
-  document.querySelector(`[data-pg="${pg}"]`)?.classList.add('on');
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
-  document.getElementById('pg-'+pg)?.classList.add('on');
-  document.getElementById('pgTitle').textContent = PAGE_TITLES[pg]||pg;
-  if(pg==='campaigns') renderCamps();
-  if(pg==='analytics') renderAnalytics();
-  if(pg==='alerts') renderAlerts();
-  if(pg==='autopause') { renderAPPage(); renderAPLog(); }
-  if(pg==='settings') renderBench();
-}
-
-function renderAPPage() {
-  document.getElementById('apEnabled').checked = AP.enabled;
-  document.getElementById('apThreshold').value = AP.threshold;
-  document.getElementById('apLeadsMin').value = AP.leads_min;
-  document.getElementById('apThresholdDisplay').textContent = thb(AP.threshold);
-  document.getElementById('apLeadsDisplay').textContent = AP.leads_min;
+function onDateChange() {
+  document.querySelectorAll('.pbtn').forEach(b => b.classList.remove('on'));
+  fetchAll();
 }
 
 function setPreset(btn, p) {
   document.querySelectorAll('.pbtn').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
-  window._preset = p;
+  const now = new Date();
+  const to = now.toISOString().slice(0,10);
+  const days = {today:0,'7d':7,'14d':14,'30d':30};
+  let from;
+  if (p === 'month') {
+    from = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().slice(0,10);
+  } else {
+    from = new Date(now - (days[p]||7)*86400000).toISOString().slice(0,10);
+  }
+  document.getElementById('df').value = p==='today'?to:from;
+  document.getElementById('dt').value = to;
   fetchAll();
 }
 
-function getRange() {
-  const p = window._preset || '7d';
-  const to = new Date().toISOString().slice(0,10);
-  const days = {today:0,'7d':7,'14d':14,'30d':30};
-  const from = new Date(Date.now() - (days[p]||7)*86400000).toISOString().slice(0,10);
-  return {from: p==='today'?to:from, to};
-}
-
+// ── META API ──
 async function meta(path, method='GET', params={}) {
   const url = new URL(API, location.origin);
   url.searchParams.set('path', path);
@@ -459,6 +460,41 @@ async function meta(path, method='GET', params={}) {
   return d;
 }
 
+// ── FETCH INSIGHTS for any date range ──
+async function fetchInsights(from, to) {
+  const [insRes, dailyRes] = await Promise.all([
+    meta(`${ACC}/insights`, 'GET', {
+      level:'campaign',
+      fields:'campaign_id,campaign_name,spend,impressions,reach,clicks,ctr,cpm,frequency,actions,action_values',
+      time_range:JSON.stringify({since:from,until:to}), limit:'500'
+    }),
+    meta(`${ACC}/insights`, 'GET', {
+      level:'account',
+      fields:'spend,impressions,clicks,actions',
+      time_range:JSON.stringify({since:from,until:to}), time_increment:'1', limit:'500'
+    })
+  ]);
+
+  const ins = insRes.data||[];
+  const daily = (dailyRes.data||[]).map(d => ({
+    date:d.date_start, spend:+d.spend||0,
+    purchase:getAct(d.actions,'offsite_conversion.fb_pixel_purchase'),
+    leads:getAct(d.actions,'lead'),
+    inbox:getAct(d.actions,'onsite_conversion.messaging_first_reply'),
+  })).sort((a,b)=>a.date.localeCompare(b.date));
+
+  const tot = ins.reduce((a,c) => ({
+    spend:a.spend+(+c.spend||0), impressions:a.impressions+(+c.impressions||0),
+    reach:a.reach+(+c.reach||0), clicks:a.clicks+(+c.clicks||0),
+    purchase:a.purchase+getAct(c.actions,'offsite_conversion.fb_pixel_purchase'),
+    leads:a.leads+getAct(c.actions,'lead')+getAct(c.actions,'onsite_conversion.lead_grouped'),
+    inbox:a.inbox+getAct(c.actions,'onsite_conversion.messaging_first_reply'),
+    revenue:a.revenue+getActVal(c.action_values,'offsite_conversion.fb_pixel_purchase'),
+  }), {spend:0,impressions:0,reach:0,clicks:0,purchase:0,leads:0,inbox:0,revenue:0});
+
+  return {ins, daily, tot};
+}
+
 async function fetchAll() {
   if(window._fetching) return;
   window._fetching = true;
@@ -467,23 +503,25 @@ async function fetchAll() {
   setDot('loading'); setSbar('loading','⏳ กำลังดึงข้อมูลจาก Meta API...');
   clearCD();
 
-  const {from, to} = getRange();
+  const from = document.getElementById('df').value;
+  const to = document.getElementById('dt').value;
+
   try {
-    const [campsRes, insRes, dailyRes] = await Promise.all([
-      meta(`${ACC}/campaigns`, 'GET', { fields:'id,name,status,daily_budget,lifetime_budget,objective', limit:'500' }),
-      meta(`${ACC}/insights`, 'GET', { level:'campaign', fields:'campaign_id,campaign_name,spend,impressions,reach,clicks,ctr,cpm,frequency,actions,action_values', time_range:JSON.stringify({since:from,until:to}), limit:'500' }),
-      meta(`${ACC}/insights`, 'GET', { level:'account', fields:'spend,impressions,clicks,actions', time_range:JSON.stringify({since:from,until:to}), time_increment:'1', limit:'500' })
-    ]);
+    const campsRes = await meta(`${ACC}/campaigns`, 'GET', {
+      fields:'id,name,status,daily_budget,lifetime_budget,objective', limit:'500'
+    });
+
+    const {ins, daily, tot} = await fetchInsights(from, to);
 
     const insMap = {};
-    (insRes.data||[]).forEach(r => {
+    ins.forEach(r => {
       insMap[r.campaign_id] = {
         spend:+r.spend||0, impressions:+r.impressions||0, reach:+r.reach||0,
         clicks:+r.clicks||0, ctr:+r.ctr||0, cpm:+r.cpm||0, frequency:+r.frequency||0,
-        purchase: getAct(r.actions,'offsite_conversion.fb_pixel_purchase'),
-        leads: getAct(r.actions,'lead') + getAct(r.actions,'onsite_conversion.lead_grouped'),
-        inbox: getAct(r.actions,'onsite_conversion.messaging_first_reply'),
-        revenue: getActVal(r.action_values,'offsite_conversion.fb_pixel_purchase'),
+        purchase:getAct(r.actions,'offsite_conversion.fb_pixel_purchase'),
+        leads:getAct(r.actions,'lead')+getAct(r.actions,'onsite_conversion.lead_grouped'),
+        inbox:getAct(r.actions,'onsite_conversion.messaging_first_reply'),
+        revenue:getActVal(r.action_values,'offsite_conversion.fb_pixel_purchase'),
       };
     });
 
@@ -493,94 +531,217 @@ async function fetchAll() {
       daily_budget: c.daily_budget ? +c.daily_budget/100 : 0,
       ...(insMap[c.id] || {spend:0,impressions:0,reach:0,clicks:0,ctr:0,cpm:0,frequency:0,purchase:0,leads:0,inbox:0,revenue:0}),
     }));
+    DAILY = daily;
 
-    DAILY = (dailyRes.data||[]).map(d => ({
-      date:d.date_start, spend:+d.spend||0, impressions:+d.impressions||0,
-      clicks:+d.clicks||0, purchase:getAct(d.actions,'offsite_conversion.fb_pixel_purchase'),
-      leads:getAct(d.actions,'lead'), inbox:getAct(d.actions,'onsite_conversion.messaging_first_reply'),
-    })).sort((a,b) => a.date.localeCompare(b.date));
-
-    // Run Auto Pause after data loaded
     await runAutoPause();
-
     renderDashboard();
     const now = new Date().toLocaleTimeString('th-TH');
     setSbar('ok',`✓ โหลดสำเร็จ · ${CAMPS.length} campaigns · ${from} → ${to} · ${now}`);
     setDot('ok'); startCD();
     document.getElementById('cd').style.display='flex';
-
-    // Update AP badge
-    if (AP_LOG.length > 0) document.getElementById('apBadge').style.display='block';
-
+    if(AP_LOG.length>0) document.getElementById('apBadge').style.display='block';
   } catch(e) {
-    console.error(e); setSbar('error','✕ '+e.message); setDot('error'); showToast(e.message,'err');
+    setSbar('error','✕ '+e.message); setDot('error'); showToast(e.message,'err');
   } finally {
     window._fetching = false; btn.classList.remove('spin'); btn.disabled = false;
   }
 }
 
-function getAct(actions, type) { return +(actions?.find(a=>a.action_type===type)?.value||0); }
-function getActVal(vals, type) { return +(vals?.find(a=>a.action_type===type)?.value||0); }
+// ── MONTH COMPARE ──
+async function runCompare() {
+  const aFrom = document.getElementById('cmpA_from').value;
+  const aTo   = document.getElementById('cmpA_to').value;
+  const bFrom = document.getElementById('cmpB_from').value;
+  const bTo   = document.getElementById('cmpB_to').value;
 
+  if (!aFrom||!aTo||!bFrom||!bTo) { showToast('กรุณาเลือกช่วงวันที่ทั้ง 2 ช่วง','err'); return; }
+
+  document.getElementById('compareLoading').style.display='block';
+  document.getElementById('compareResult').style.display='none';
+
+  try {
+    const [dataA, dataB] = await Promise.all([fetchInsights(aFrom, aTo), fetchInsights(bFrom, bTo)]);
+
+    const metrics = [
+      {key:'spend', label:'Total Spend', fmt:thb, rev:false},
+      {key:'purchase', label:'Purchases', fmt:n=>Math.round(n).toLocaleString('th-TH'), rev:true},
+      {key:'cpp', label:'Cost per Purchase', fmt:thb, rev:false, calc:t=>t.purchase>0?t.spend/t.purchase:0},
+      {key:'leads', label:'Leads', fmt:n=>Math.round(n).toLocaleString('th-TH'), rev:true},
+      {key:'inbox', label:'Inbox', fmt:n=>Math.round(n).toLocaleString('th-TH'), rev:true},
+      {key:'impressions', label:'Impressions', fmt:fmtK, rev:true},
+      {key:'clicks', label:'Clicks', fmt:n=>Math.round(n).toLocaleString('th-TH'), rev:true},
+      {key:'ctr', label:'CTR', fmt:pct, rev:true, calc:t=>t.impressions>0?t.clicks/t.impressions:0},
+      {key:'cpm', label:'CPM', fmt:thb, rev:false, calc:t=>t.impressions>0?t.spend/t.impressions*1000:0},
+      {key:'cpc', label:'CPC', fmt:thb, rev:false, calc:t=>t.clicks>0?t.spend/t.clicks:0},
+      {key:'reach', label:'Reach', fmt:fmtK, rev:true},
+      {key:'roas', label:'ROAS', fmt:n=>n.toFixed(2)+'×', rev:true, calc:t=>t.spend>0?t.revenue/t.spend:0},
+    ];
+
+    const aLabel = `${fmtDate(aFrom)} – ${fmtDate(aTo)}`;
+    const bLabel = `${fmtDate(bFrom)} – ${fmtDate(bTo)}`;
+    document.getElementById('compareTitle').innerHTML = `<span style="color:var(--blue)">📘 ${aLabel}</span> vs <span style="color:var(--amber)">📙 ${bLabel}</span>`;
+
+    const grid = document.getElementById('compareGrid');
+    grid.innerHTML = '';
+
+    metrics.forEach(m => {
+      const vA = m.calc ? m.calc(dataA.tot) : (dataA.tot[m.key]||0);
+      const vB = m.calc ? m.calc(dataB.tot) : (dataB.tot[m.key]||0);
+      const pct_val = vB > 0 ? ((vA - vB) / vB * 100) : (vA > 0 ? 100 : 0);
+      const isGood = m.rev ? pct_val >= 0 : pct_val <= 0;
+      const pctClass = Math.abs(pct_val) < 0.5 ? 'neu' : isGood ? 'up' : 'down';
+      const sign = pct_val > 0 ? '+' : '';
+      const maxV = Math.max(vA, vB, 0.001);
+
+      grid.innerHTML += `<div class="compare-card">
+        <div class="cc-label">${m.label}</div>
+        <div class="cc-row">
+          <span class="cc-period" style="color:var(--blue)">📘 ช่วง A</span>
+          <span class="cc-val">${m.fmt(vA)}</span>
+        </div>
+        <div class="cc-row">
+          <span class="cc-period" style="color:var(--amber)">📙 ช่วง B</span>
+          <span class="cc-val" style="color:var(--t3)">${m.fmt(vB)}</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
+          <span style="font-size:10px;color:var(--t3)">A vs B</span>
+          <span class="cc-pct ${pctClass}">${sign}${pct_val.toFixed(1)}%</span>
+        </div>
+        <div class="cc-bar"><div class="cc-bar-inner" style="width:${(vA/maxV*100).toFixed(1)}%;background:var(--blue)"></div></div>
+        <div class="cc-bar" style="margin-top:3px"><div class="cc-bar-inner" style="width:${(vB/maxV*100).toFixed(1)}%;background:var(--amber)"></div></div>
+      </div>`;
+    });
+
+    // Compare chart
+    const allDates = [...new Set([...dataA.daily.map(d=>d.date), ...dataB.daily.map(d=>d.date)])].sort();
+    const mapA = Object.fromEntries(dataA.daily.map(d=>[d.date,d]));
+    const mapB = Object.fromEntries(dataB.daily.map(d=>[d.date,d]));
+
+    if (CMP_CHART) CMP_CHART.destroy();
+    const gc={color:'rgba(255,255,255,0.04)'}, tc={color:'#505068',font:{size:9}};
+
+    // Use day-index as x-axis for cleaner comparison
+    const lenA = dataA.daily.length, lenB = dataB.daily.length;
+    const maxLen = Math.max(lenA, lenB);
+    const xLabels = Array.from({length:maxLen}, (_,i)=>`วัน ${i+1}`);
+
+    CMP_CHART = new Chart(document.getElementById('cmpChart'), {
+      type:'line',
+      data:{
+        labels: xLabels,
+        datasets:[
+          {label:`Spend ช่วง A`,data:dataA.daily.map(d=>Math.round(d.spend)),borderColor:'#5b8ef0',backgroundColor:'rgba(91,142,240,.1)',fill:true,tension:.3,pointRadius:2,yAxisID:'y'},
+          {label:`Spend ช่วง B`,data:dataB.daily.map(d=>Math.round(d.spend)),borderColor:'#f4b942',backgroundColor:'rgba(244,185,66,.1)',fill:true,tension:.3,pointRadius:2,borderDash:[4,3],yAxisID:'y'},
+          {label:`Purchase A`,data:dataA.daily.map(d=>d.purchase),borderColor:'#2dd4a0',tension:.3,pointRadius:2,yAxisID:'y2'},
+          {label:`Purchase B`,data:dataB.daily.map(d=>d.purchase),borderColor:'#f06272',tension:.3,pointRadius:2,borderDash:[4,3],yAxisID:'y2'},
+        ]
+      },
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        plugins:{legend:{labels:{color:'#9090a8',font:{size:10},boxWidth:10,boxHeight:2}}},
+        scales:{
+          x:{ticks:tc,grid:gc},
+          y:{ticks:{...tc,callback:v=>'฿'+Math.round(v/1000)+'K'},grid:gc},
+          y2:{position:'right',ticks:tc,grid:{drawOnChartArea:false},beginAtZero:true}
+        }
+      }
+    });
+
+    document.getElementById('compareLoading').style.display='none';
+    document.getElementById('compareResult').style.display='block';
+
+  } catch(e) {
+    document.getElementById('compareLoading').style.display='none';
+    showToast('Error: '+e.message,'err');
+  }
+}
+
+function fmtDate(d) {
+  if (!d) return '';
+  const [y,m,day] = d.split('-');
+  const months = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  return `${+day} ${months[+m-1]} ${+y+543}`;
+}
+
+// ── AUTO PAUSE ──
+function saveAPSettings() {
+  AP.enabled = document.getElementById('apEnabled').checked;
+  AP.threshold = +document.getElementById('apThreshold').value||50000;
+  AP.leads_min = +document.getElementById('apLeadsMin').value||5;
+  localStorage.setItem('ap', JSON.stringify(AP));
+  document.getElementById('apThresholdDisplay').textContent = thb(AP.threshold);
+  document.getElementById('apLeadsDisplay').textContent = AP.leads_min;
+  showToast(AP.enabled?'🤖 Auto Pause เปิดแล้ว':'Auto Pause ปิดแล้ว','ok');
+}
+
+async function runAutoPause() {
+  if(!AP.enabled||!CAMPS.length) return;
+  const tosPause = CAMPS.filter(c => c.status==='ACTIVE' && c.spend>AP.threshold && c.purchase===0 && (c.leads||0)<AP.leads_min);
+  for (const c of tosPause) {
+    try {
+      await meta(c.id,'POST',{status:'PAUSED'});
+      c.status='PAUSED';
+      AP_LOG.unshift({id:c.id,name:c.name,spend:c.spend,leads:c.leads||0,time:new Date().toLocaleString('th-TH'),threshold:AP.threshold});
+      if(AP_LOG.length>50) AP_LOG.pop();
+      localStorage.setItem('ap_log',JSON.stringify(AP_LOG));
+      showToast(`🤖 Auto Paused: ${c.name.slice(0,35)}`,'ok');
+    } catch(e) { console.error('AutoPause failed:',c.name,e.message); }
+  }
+  if(tosPause.length>0){renderAPLog();document.getElementById('apBadge').style.display='block';}
+}
+
+function renderAPLog() {
+  const el=document.getElementById('apLog');
+  if(!AP_LOG.length){el.innerHTML='<div style="padding:24px;text-align:center;font-size:11px;color:var(--t3)">ยังไม่มีประวัติ</div>';return;}
+  el.innerHTML=`<div class="log-list">${AP_LOG.map(l=>`<div class="log-item"><div style="font-size:14px;flex-shrink:0">⏸</div><div class="li-body"><div class="li-title">${l.name}</div><div class="li-meta">Spend ${thb(l.spend)} · ${l.leads} Leads · ${l.time}</div></div><span class="autopause-badge">AUTO PAUSED</span></div>`).join('')}</div>`;
+}
+
+// ── NAV ──
+document.querySelectorAll('.nb[data-pg]').forEach(b => b.addEventListener('click', () => goPage(b.dataset.pg)));
+function goPage(pg) {
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  document.querySelector(`[data-pg="${pg}"]`)?.classList.add('on');
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.getElementById('pg-'+pg)?.classList.add('on');
+  document.getElementById('pgTitle').textContent=PAGE_TITLES[pg]||pg;
+  if(pg==='campaigns') renderCamps();
+  if(pg==='analytics') renderAnalytics();
+  if(pg==='alerts') renderAlerts();
+  if(pg==='autopause'){document.getElementById('apEnabled').checked=AP.enabled;document.getElementById('apThreshold').value=AP.threshold;document.getElementById('apLeadsMin').value=AP.leads_min;document.getElementById('apThresholdDisplay').textContent=thb(AP.threshold);document.getElementById('apLeadsDisplay').textContent=AP.leads_min;renderAPLog();}
+  if(pg==='settings') renderBench();
+}
+
+// ── CAMPAIGN CONTROLS ──
 async function pauseCamp(id, name) {
-  const btn = event.currentTarget; btn.disabled=true; btn.innerHTML='<span class="bspin"></span>';
-  try {
-    await meta(id,'POST',{status:'PAUSED'});
-    const c = CAMPS.find(x=>x.id===id); if(c) c.status='PAUSED';
-    showToast(`⏸ Paused: ${name.slice(0,35)}`,'ok'); renderDashboard(); renderCamps();
-  } catch(e) { showToast('Error: '+e.message,'err'); btn.disabled=false; btn.textContent='Pause'; }
+  const btn=event.currentTarget;btn.disabled=true;btn.innerHTML='<span class="bspin"></span>';
+  try{await meta(id,'POST',{status:'PAUSED'});const c=CAMPS.find(x=>x.id===id);if(c)c.status='PAUSED';showToast(`⏸ Paused: ${name.slice(0,35)}`,'ok');renderDashboard();renderCamps();}
+  catch(e){showToast('Error: '+e.message,'err');btn.disabled=false;btn.textContent='Pause';}
 }
-
 async function activateCamp(id, name) {
-  const btn = event.currentTarget; btn.disabled=true; btn.innerHTML='<span class="bspin"></span>';
-  try {
-    await meta(id,'POST',{status:'ACTIVE'});
-    const c = CAMPS.find(x=>x.id===id); if(c) c.status='ACTIVE';
-    showToast(`▶ Activated: ${name.slice(0,35)}`,'ok'); renderDashboard(); renderCamps();
-  } catch(e) { showToast('Error: '+e.message,'err'); btn.disabled=false; btn.textContent='On'; }
+  const btn=event.currentTarget;btn.disabled=true;btn.innerHTML='<span class="bspin"></span>';
+  try{await meta(id,'POST',{status:'ACTIVE'});const c=CAMPS.find(x=>x.id===id);if(c)c.status='ACTIVE';showToast(`▶ Activated: ${name.slice(0,35)}`,'ok');renderDashboard();renderCamps();}
+  catch(e){showToast('Error: '+e.message,'err');btn.disabled=false;btn.textContent='On';}
 }
-
-function openScaleModal(id, name, budget) {
-  SCALE_C = CAMPS.find(c=>c.id===id) || {id,name,daily_budget:budget};
-  document.getElementById('sname').textContent = name.slice(0,40);
-  document.getElementById('scur').textContent = `฿${(budget||5000).toLocaleString('th-TH')}/day`;
-  document.getElementById('snew').value = '';
-  document.getElementById('scaleSub').disabled=false;
-  document.getElementById('scaleSub').textContent='Update Budget';
-  openModal('scale');
-}
-
-function setMult(m) { document.getElementById('snew').value = Math.round((SCALE_C?.daily_budget||5000)*m); }
-
-async function doScale() {
-  const nb = +document.getElementById('snew').value;
+function openScaleModal(id,name,budget){SCALE_C=CAMPS.find(c=>c.id===id)||{id,name,daily_budget:budget};document.getElementById('sname').textContent=name.slice(0,40);document.getElementById('scur').textContent=`฿${(budget||5000).toLocaleString('th-TH')}/day`;document.getElementById('snew').value='';document.getElementById('scaleSub').disabled=false;document.getElementById('scaleSub').textContent='Update Budget';openModal('scale');}
+function setMult(m){document.getElementById('snew').value=Math.round((SCALE_C?.daily_budget||5000)*m);}
+async function doScale(){
+  const nb=+document.getElementById('snew').value;
   if(!nb||!SCALE_C){showToast('กรอกจำนวนให้ถูกต้อง','err');return;}
-  const btn = document.getElementById('scaleSub');
-  btn.disabled=true; btn.innerHTML='<span class="bspin"></span> กำลังอัปเดต...';
-  try {
-    await meta(SCALE_C.id,'POST',{daily_budget:String(Math.round(nb*100))});
-    if(SCALE_C) SCALE_C.daily_budget = nb;
-    showToast(`💰 Budget → ฿${nb.toLocaleString('th-TH')}/day`,'ok');
-    closeModal(); renderCamps();
-  } catch(e) { showToast('Error: '+e.message,'err'); btn.disabled=false; btn.textContent='Update Budget'; }
+  const btn=document.getElementById('scaleSub');btn.disabled=true;btn.innerHTML='<span class="bspin"></span> กำลังอัปเดต...';
+  try{await meta(SCALE_C.id,'POST',{daily_budget:String(Math.round(nb*100))});if(SCALE_C)SCALE_C.daily_budget=nb;showToast(`💰 Budget → ฿${nb.toLocaleString('th-TH')}/day`,'ok');closeModal();renderCamps();}
+  catch(e){showToast('Error: '+e.message,'err');btn.disabled=false;btn.textContent='Update Budget';}
 }
-
-async function doCreate() {
-  const name = document.getElementById('cname').value.trim();
-  const obj = document.getElementById('cobj').value;
-  const budget = +document.getElementById('cbudget').value||5000;
+async function doCreate(){
+  const name=document.getElementById('cname').value.trim(),obj=document.getElementById('cobj').value,budget=+document.getElementById('cbudget').value||5000;
   if(!name){showToast('กรุณาใส่ชื่อ','err');return;}
-  const btn = document.getElementById('createSub');
-  btn.disabled=true; btn.innerHTML='<span class="bspin"></span> กำลังสร้าง...';
-  try {
-    const r = await meta(`${ACC}/campaigns`,'POST',{name,objective:obj,status:'PAUSED',special_ad_categories:'[]',daily_budget:String(Math.round(budget*100))});
-    CAMPS.unshift({id:r.id,name,status:'PAUSED',objective:obj.replace('OUTCOME_',''),daily_budget:budget,spend:0,impressions:0,clicks:0,ctr:0,cpm:0,purchase:0,leads:0,inbox:0});
-    showToast('✓ Created: '+name,'ok'); closeModal(); renderCamps(); renderDashboard();
-  } catch(e) { showToast('Error: '+e.message,'err'); btn.disabled=false; btn.textContent='Create Campaign'; }
+  const btn=document.getElementById('createSub');btn.disabled=true;btn.innerHTML='<span class="bspin"></span> กำลังสร้าง...';
+  try{const r=await meta(`${ACC}/campaigns`,'POST',{name,objective:obj,status:'PAUSED',special_ad_categories:'[]',daily_budget:String(Math.round(budget*100))});CAMPS.unshift({id:r.id,name,status:'PAUSED',objective:obj.replace('OUTCOME_',''),daily_budget:budget,spend:0,impressions:0,clicks:0,ctr:0,cpm:0,purchase:0,leads:0,inbox:0});showToast('✓ Created: '+name,'ok');closeModal();renderCamps();renderDashboard();}
+  catch(e){showToast('Error: '+e.message,'err');btn.disabled=false;btn.textContent='Create Campaign';}
 }
 
-function scoreC(c) {
-  let s=0; const cpp=c.purchase>0?c.spend/c.purchase:0;
+// ── SCORE ──
+function scoreC(c){
+  let s=0;const cpp=c.purchase>0?c.spend/c.purchase:0;
   if(cpp>0){if(cpp<=BENCH.cpp_good)s+=2;else if(cpp<=BENCH.cpp_ok)s+=1;else s-=2;}
   if(c.ctr>=BENCH.ctr_good)s+=1;else if(c.ctr<BENCH.ctr_ok)s-=1;
   if(c.purchase>0)s+=1;
@@ -589,49 +750,37 @@ function scoreC(c) {
   if(c.purchase>0&&cpp<=BENCH.cpp_good)flags.push('SCALE_NOW');
   if(s<=-1&&c.spend>BENCH.kill)flags.push('RECOMMEND_PAUSE');
   const status=s>=3?'WINNER':s>=1?'WATCH':'LOSER';
-  const rec=flags.includes('SCALE_NOW')?`CPP ${thb(cpp)} ดีเกินเกณฑ์ — เพิ่มงบ 20–30%`:flags.includes('HIGH_SPEND_NO_CONV')?`ใช้งบ ${thb(c.spend)} ไม่มี Conversion — ปรับ Creative`:flags.includes('RECOMMEND_PAUSE')?'ผลงานต่ำ — ควรปิด':'ผลงานปกติ — Monitor ต่อ';
+  const rec=flags.includes('SCALE_NOW')?`CPP ${thb(cpp)} ดีเกินเกณฑ์`:flags.includes('HIGH_SPEND_NO_CONV')?`ใช้งบ ${thb(c.spend)} ไม่มี Conversion`:flags.includes('RECOMMEND_PAUSE')?'ผลงานต่ำ — ควรปิด':'ผลงานปกติ';
   return{status,flags,score:s,rec,cpp};
 }
 
-function summ(cs){return{w:cs.filter(c=>c.status==='WINNER').length,a:cs.filter(c=>c.status==='WATCH').length,l:cs.filter(c=>c.status==='LOSER').length,s:cs.filter(c=>c.flags?.includes('SCALE_NOW')).length,p:cs.filter(c=>c.flags?.includes('RECOMMEND_PAUSE')).length};}
-
-function renderDashboard() {
-  const cs = CAMPS.map(c=>({...c,...scoreC(c)}));
-  const tot = cs.reduce((a,c)=>({spend:a.spend+c.spend,impr:a.impr+c.impressions,reach:a.reach+c.reach,clicks:a.clicks+c.clicks,purchase:a.purchase+c.purchase,leads:a.leads+c.leads,inbox:a.inbox+c.inbox}),{spend:0,impr:0,reach:0,clicks:0,purchase:0,leads:0,inbox:0});
-  const cpp=tot.purchase>0?tot.spend/tot.purchase:0;
-  const ctr=tot.impr>0?tot.clicks/tot.impr:0;
-  const cpm=tot.impr>0?tot.spend/tot.impr*1000:0;
-  const cpc=tot.clicks>0?tot.spend/tot.clicks:0;
-
-  const kp=document.getElementById('kPurch'), kc=document.getElementById('kCPP');
-  kp.classList.remove('sk'); kp.textContent=tot.purchase.toLocaleString('th-TH');
-  kc.classList.remove('sk'); kc.textContent=tot.purchase>0?thb(cpp):'—';
-
+// ── RENDER DASHBOARD ──
+function renderDashboard(){
+  const cs=CAMPS.map(c=>({...c,...scoreC(c)}));
+  const tot=cs.reduce((a,c)=>({spend:a.spend+c.spend,impr:a.impr+c.impressions,reach:a.reach+c.reach,clicks:a.clicks+c.clicks,purchase:a.purchase+c.purchase,leads:a.leads+c.leads,inbox:a.inbox+c.inbox}),{spend:0,impr:0,reach:0,clicks:0,purchase:0,leads:0,inbox:0});
+  const cpp=tot.purchase>0?tot.spend/tot.purchase:0,ctr=tot.impr>0?tot.clicks/tot.impr:0,cpm=tot.impr>0?tot.spend/tot.impr*1000:0,cpc=tot.clicks>0?tot.spend/tot.clicks:0;
+  const kp=document.getElementById('kPurch'),kc=document.getElementById('kCPP');
+  kp.classList.remove('sk');kp.textContent=tot.purchase.toLocaleString('th-TH');
+  kc.classList.remove('sk');kc.textContent=tot.purchase>0?thb(cpp):'—';
   const kpis=[['Total Spend',thb(tot.spend),'--blue'],['Impressions',fmtK(tot.impr),'--purple'],['Reach',fmtK(tot.reach),'--purple'],['Clicks',tot.clicks.toLocaleString('th-TH'),'--blue'],['CTR',pct(ctr),ctr>=BENCH.ctr_good?'--green':ctr<BENCH.ctr_ok?'--red':'--amber'],['CPM',thb(cpm),'--amber'],['CPC',thb(cpc),'--amber'],['Leads',tot.leads.toLocaleString('th-TH'),'--green'],['Inbox',tot.inbox.toLocaleString('th-TH'),'--green'],['Campaigns',cs.length,'--blue']];
   document.getElementById('kgrid').innerHTML=kpis.map(([l,v,c])=>`<div class="kcard" style="--kc:var(${c})"><div class="klbl">${l}</div><div class="kval">${v}</div></div>`).join('');
-
-  const su=summ(cs);
+  const su={w:cs.filter(c=>c.status==='WINNER').length,a:cs.filter(c=>c.status==='WATCH').length,l:cs.filter(c=>c.status==='LOSER').length,s:cs.filter(c=>c.flags?.includes('SCALE_NOW')).length};
   document.getElementById('srow').innerHTML=`<div class="sc w"><div class="scv">${su.w}</div><div class="scl">Winners 🏆</div></div><div class="sc a"><div class="scv">${su.a}</div><div class="scl">Watch 👀</div></div><div class="sc r"><div class="scv">${su.l}</div><div class="scl">Losers 💀</div></div><div class="sc b"><div class="scv">${su.s}</div><div class="scl">Scale 🚀</div></div>`;
-  document.getElementById('alertBadge').style.display=(su.p+su.s)>0?'block':'none';
-
-  renderCharts();
-  renderDashTable(cs);
+  document.getElementById('alertBadge').style.display=su.s>0?'block':'none';
+  renderCharts();renderDashTable(cs);
 }
 
-function renderCharts() {
-  if(!DAILY.length) return;
-  const gc={color:'rgba(255,255,255,0.04)'}, tc={color:'#505068',font:{size:9,family:"'IBM Plex Mono',monospace"}};
-  const lbs=DAILY.map(d=>d.date.slice(5));
-  const sp=DAILY.map(d=>Math.round(d.spend||0));
-  const pu=DAILY.map(d=>Math.round(d.purchase||0));
-  const cp=DAILY.map(d=>(d.purchase||0)>0?Math.round(d.spend/d.purchase):0);
+function renderCharts(){
+  if(!DAILY.length)return;
+  const gc={color:'rgba(255,255,255,0.04)'},tc={color:'#505068',font:{size:9,family:"'IBM Plex Mono',monospace"}};
+  const lbs=DAILY.map(d=>d.date.slice(5)),sp=DAILY.map(d=>Math.round(d.spend||0)),pu=DAILY.map(d=>Math.round(d.purchase||0)),cp=DAILY.map(d=>(d.purchase||0)>0?Math.round(d.spend/d.purchase):0);
   if(CHARTS.s)CHARTS.s.destroy();
   CHARTS.s=new Chart(document.getElementById('cS'),{type:'bar',data:{labels:lbs,datasets:[{label:'Spend',data:sp,backgroundColor:'rgba(91,142,240,.65)',yAxisID:'y',borderRadius:3},{label:'Purchase',data:pu,type:'line',borderColor:'#2dd4a0',backgroundColor:'rgba(45,212,160,.12)',fill:true,tension:.3,yAxisID:'y2',pointRadius:3,pointBackgroundColor:'#2dd4a0'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:tc,grid:gc},y:{ticks:{...tc,callback:v=>'฿'+Math.round(v/1000)+'K'},grid:gc},y2:{position:'right',ticks:tc,grid:{drawOnChartArea:false},beginAtZero:true}}}});
   if(CHARTS.c)CHARTS.c.destroy();
   CHARTS.c=new Chart(document.getElementById('cC'),{type:'line',data:{labels:lbs,datasets:[{data:cp,borderColor:'#f4b942',backgroundColor:'rgba(244,185,66,.12)',fill:true,tension:.3,pointRadius:3,pointBackgroundColor:'#f4b942'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'฿'+Math.round(c.raw).toLocaleString('th-TH')}}},scales:{x:{ticks:tc,grid:gc},y:{ticks:{...tc,callback:v=>'฿'+Math.round(v/1000)+'K'},grid:gc,beginAtZero:false}}}});
 }
 
-function renderDashTable(cs) {
+function renderDashTable(cs){
   const body=document.getElementById('dashBody');
   document.getElementById('campCnt').textContent=cs.length+' campaigns';
   body.innerHTML='';
@@ -639,90 +788,74 @@ function renderDashTable(cs) {
     const scl={WINNER:'pg',WATCH:'pa',LOSER:'pr'}[c.status];
     const cppClr=c.purchase>0?(c.cpp<=BENCH.cpp_good?'color:var(--green)':c.cpp<=BENCH.cpp_ok?'color:var(--amber)':'color:var(--red)'):'color:var(--t3)';
     const isActive=c.status==='ACTIVE';
-    const apWarn = AP.enabled && isActive && c.spend > AP.threshold*0.8 && c.purchase===0 ? ' title="⚠️ ใกล้ถึง Auto Pause threshold"' : '';
     const tr=document.createElement('tr');
-    tr.innerHTML=`<td class="tdname" title="${c.name}"${apWarn}>${c.name}${AP.enabled&&isActive&&c.spend>AP.threshold*0.8&&c.purchase===0?'<span style="color:var(--red);font-size:9px;margin-left:4px">⚠️</span>':''}</td><td class="tdn">${thb(c.spend)}</td><td class="tdn">${pct(c.ctr||0)}</td><td class="tdn">${thb(c.cpm||0)}</td><td class="tdn">${c.purchase>0?`<span class="pill pg">${c.purchase}</span>`:'<span style="color:var(--t3)">0</span>'}</td><td class="tdn" style="${cppClr}">${c.purchase>0?thb(c.cpp):'—'}</td><td class="tdn">${c.leads>0?`<span class="pill pa">${c.leads}</span>`:'<span style="color:var(--t3)">0</span>'}</td><td class="tdn">${c.inbox>0?`<span class="pill pb">${c.inbox}</span>`:'<span style="color:var(--t3)">0</span>'}</td><td><span class="pill ${scl}">${c.status}</span></td><td><div style="display:flex;gap:3px">${isActive?`<button class="abtn ab-p" onclick="pauseCamp('${c.id}','${c.name.replace(/'/g,"\\'")}')">Pause</button>`:`<button class="abtn ab-o" onclick="activateCamp('${c.id}','${c.name.replace(/'/g,"\\'")}')">On</button>`}<button class="abtn ab-s" onclick="openScaleModal('${c.id}','${c.name.replace(/'/g,"\\'")}',${c.daily_budget||5000})">Scale</button></div></td>`;
+    tr.innerHTML=`<td class="tdname" title="${c.name}">${c.name}</td><td class="tdn">${thb(c.spend)}</td><td class="tdn">${pct(c.ctr||0)}</td><td class="tdn">${thb(c.cpm||0)}</td><td class="tdn">${c.purchase>0?`<span class="pill pg">${c.purchase}</span>`:'<span style="color:var(--t3)">0</span>'}</td><td class="tdn" style="${cppClr}">${c.purchase>0?thb(c.cpp):'—'}</td><td class="tdn">${c.leads>0?`<span class="pill pa">${c.leads}</span>`:'<span style="color:var(--t3)">0</span>'}</td><td class="tdn">${c.inbox>0?`<span class="pill pb">${c.inbox}</span>`:'<span style="color:var(--t3)">0</span>'}</td><td><span class="pill ${scl}">${c.status}</span></td><td><div style="display:flex;gap:3px">${isActive?`<button class="abtn ab-p" onclick="pauseCamp('${c.id}','${c.name.replace(/'/g,"\\'")}')">Pause</button>`:`<button class="abtn ab-o" onclick="activateCamp('${c.id}','${c.name.replace(/'/g,"\\'")}')">On</button>`}<button class="abtn ab-s" onclick="openScaleModal('${c.id}','${c.name.replace(/'/g,"\\'")}',${c.daily_budget||5000})">Scale</button></div></td>`;
     body.appendChild(tr);
   });
 }
 
-function renderCamps() {
+function renderCamps(){
   const body=document.getElementById('campBody');
   document.getElementById('campN').textContent='('+CAMPS.length+')';
   body.innerHTML='';
-  if(!CAMPS.length){body.innerHTML='<tr><td colspan="6" style="padding:28px;text-align:center;color:var(--t3);font-size:11px">กด Refresh ที่ Dashboard ก่อนครับ</td></tr>';return;}
+  if(!CAMPS.length){body.innerHTML='<tr><td colspan="6" style="padding:28px;text-align:center;color:var(--t3)">กด Refresh ที่ Dashboard ก่อนครับ</td></tr>';return;}
   [...CAMPS].sort((a,b)=>b.spend-a.spend).forEach(c=>{
-    const sc=scoreC(c); const isActive=c.status==='ACTIVE';
+    const sc=scoreC(c),isActive=c.status==='ACTIVE';
     const tr=document.createElement('tr');
     tr.innerHTML=`<td class="tdname" title="${c.name}"><span style="color:var(--t1)">${c.name}</span><div style="font-size:9px;color:var(--t3);font-family:'IBM Plex Mono',monospace">${c.id}</div></td><td><span class="pill ${isActive?'pg':''}">${c.status}</span></td><td class="tdn">${thb(c.spend)}</td><td class="tdn">${c.purchase>0?`<span class="pill pg">${c.purchase}</span>`:'<span style="color:var(--t3)">0</span>'}</td><td class="tdn">${c.purchase>0?thb(sc.cpp):'—'}</td><td><div style="display:flex;gap:3px">${isActive?`<button class="abtn ab-p" onclick="pauseCamp('${c.id}','${c.name.replace(/'/g,"\\'")}')">Pause</button>`:`<button class="abtn ab-o" onclick="activateCamp('${c.id}','${c.name.replace(/'/g,"\\'")}')">On</button>`}<button class="abtn ab-s" onclick="openScaleModal('${c.id}','${c.name.replace(/'/g,"\\'")}',${c.daily_budget||5000})">Scale</button></div></td>`;
     body.appendChild(tr);
   });
 }
 
-function renderAnalytics() {
-  const el=document.getElementById('analyticsEl'); el.innerHTML='';
-  if(!CAMPS.length){el.innerHTML='<div style="padding:32px;text-align:center;color:var(--t3);font-size:12px">กด Refresh ที่ Dashboard ก่อนครับ</div>';return;}
+function renderAnalytics(){
+  const el=document.getElementById('analyticsEl');el.innerHTML='';
+  if(!CAMPS.length){el.innerHTML='<div style="padding:32px;text-align:center;color:var(--t3)">กด Refresh ที่ Dashboard ก่อนครับ</div>';return;}
   CAMPS.map(c=>({...c,...scoreC(c)})).sort((a,b)=>b.score-a.score).forEach(c=>{
     const scClr={WINNER:'var(--green)',WATCH:'var(--amber)',LOSER:'var(--red)'}[c.status];
-    const d=document.createElement('div'); d.className='ac '+(c.status==='WINNER'?'wi':c.status==='WATCH'?'wa':'lo');
+    const d=document.createElement('div');d.className='ac '+(c.status==='WINNER'?'wi':c.status==='WATCH'?'wa':'lo');
     d.innerHTML=`<div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span style="font-size:10px;font-weight:500;color:${scClr}">${c.status}</span>${(c.flags||[]).map(f=>`<span style="font-size:9px;background:var(--bg3);color:var(--t3);padding:1px 6px;border-radius:10px">${f.replace(/_/g,' ')}</span>`).join('')}</div><div style="font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.name}</div><div style="font-size:10px;color:var(--t3);margin-top:2px">${c.rec}</div></div><div style="flex-shrink:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:right"><div><div style="font-size:9px;color:var(--t3)">Spend</div><div style="font-size:11px;font-family:'IBM Plex Mono',monospace">${thb(c.spend)}</div></div><div><div style="font-size:9px;color:var(--t3)">Purchase</div><div style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:${c.purchase>0?'var(--green)':'var(--t3)'}">${c.purchase}</div></div><div><div style="font-size:9px;color:var(--t3)">CPP</div><div style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:${c.cpp>0?(c.cpp<=BENCH.cpp_good?'var(--green)':c.cpp<=BENCH.cpp_ok?'var(--amber)':'var(--red)'):'var(--t3)'}">${c.cpp>0?thb(c.cpp):'—'}</div></div></div>`;
     el.appendChild(d);
   });
 }
 
-function renderAlerts() {
-  const el=document.getElementById('alertsEl'); el.innerHTML='';
+function renderAlerts(){
+  const el=document.getElementById('alertsEl');el.innerHTML='';
   const cs=CAMPS.map(c=>({...c,...scoreC(c)}));
-  if(!cs.length){el.innerHTML='<div style="padding:32px;text-align:center;color:var(--t3);font-size:12px">กด Refresh ที่ Dashboard ก่อนครับ</div>';return;}
-  [{t:'🚀 Scale Now',k:'SCALE_NOW',m:'ROAS/CPP ดีเกินเกณฑ์ — ควรเพิ่มงบ 20–30%'},{t:'⚠️ Recommend Pause',k:'RECOMMEND_PAUSE',m:'ผลงานต่ำกว่าเกณฑ์ — ควรปิด'},{t:'💸 High Spend No Convert',k:'HIGH_SPEND_NO_CONV',m:'ใช้งบสูงแต่ไม่มี Conversion'}].forEach(sec=>{
+  if(!cs.length){el.innerHTML='<div style="padding:32px;text-align:center;color:var(--t3)">กด Refresh ที่ Dashboard ก่อนครับ</div>';return;}
+  [{t:'🚀 Scale Now',k:'SCALE_NOW',m:'CPP ดีเกินเกณฑ์ — ควรเพิ่มงบ'},{t:'⚠️ Recommend Pause',k:'RECOMMEND_PAUSE',m:'ผลงานต่ำ — ควรปิด'},{t:'💸 High Spend No Convert',k:'HIGH_SPEND_NO_CONV',m:'ใช้งบสูงแต่ไม่มี Conversion'}].forEach(sec=>{
     const items=cs.filter(c=>c.flags?.includes(sec.k));
-    const d=document.createElement('div'); d.className='asec';
-    d.innerHTML=`<div class="asechdr"><div><div style="font-size:12px;font-weight:500">${sec.t}</div><div style="font-size:10px;color:var(--t3);margin-top:1px">${sec.m}</div></div><span style="font-size:10px;font-family:'IBM Plex Mono',monospace;background:var(--bg3);color:var(--t2);padding:2px 8px;border-radius:20px">${items.length} campaigns</span></div>${items.length===0?'<div style="padding:18px;text-align:center;font-size:11px;color:var(--t3)">ไม่มี alerts ✓</div>':items.map(c=>`<div class="arow"><div style="flex:1;min-width:0"><div style="font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.name}</div></div><div style="display:flex;gap:10px;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--t3)"><span>${thb(c.spend)}</span>${c.cpp>0?`<span>CPP ${thb(c.cpp)}</span>`:''}</div></div>`).join('')}`;
+    const d=document.createElement('div');d.className='asec';
+    d.innerHTML=`<div class="asechdr"><div><div style="font-size:12px;font-weight:500">${sec.t}</div><div style="font-size:10px;color:var(--t3);margin-top:1px">${sec.m}</div></div><span style="font-size:10px;font-family:'IBM Plex Mono',monospace;background:var(--bg3);color:var(--t2);padding:2px 8px;border-radius:20px">${items.length}</span></div>${items.length===0?'<div style="padding:18px;text-align:center;font-size:11px;color:var(--t3)">ไม่มี alerts ✓</div>':items.map(c=>`<div class="arow"><div style="flex:1;min-width:0;font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.name}</div><span style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--t3)">${thb(c.spend)}</span></div>`).join('')}`;
     el.appendChild(d);
   });
 }
 
-function renderBench() {
-  const fields=[{k:'cpp_good',l:'CPP ดี (฿)',d:'ต่ำกว่านี้ = Winner'},{k:'cpp_ok',l:'CPP ปกติ (฿)',d:'สูงกว่านี้ = แย่'},{k:'ctr_good',l:'CTR ดี (0.02=2%)',d:'สูงกว่านี้ = ดี'},{k:'ctr_ok',l:'CTR ต่ำ',d:'ต่ำกว่านี้ = แย่'},{k:'high_spend',l:'High Spend Alert (฿)',d:'Alert เมื่อ Spend เกินนี้ ไม่มี Conv'},{k:'kill',l:'Kill Threshold (฿)',d:'Alert ปิด เมื่อ Spend เกินนี้ & Loser'}];
-  const g=document.getElementById('benchGroup'); g.innerHTML='';
+function renderBench(){
+  const fields=[{k:'cpp_good',l:'CPP ดี (฿)',d:'ต่ำกว่านี้ = Winner'},{k:'cpp_ok',l:'CPP ปกติ (฿)',d:'สูงกว่านี้ = แย่'},{k:'ctr_good',l:'CTR ดี',d:'0.02 = 2%'},{k:'ctr_ok',l:'CTR ต่ำ',d:'ต่ำกว่านี้ = แย่'},{k:'high_spend',l:'High Spend Alert (฿)',d:'ไม่มี Conv'},{k:'kill',l:'Kill Threshold (฿)',d:'Loser + เกินนี้'}];
+  const g=document.getElementById('benchGroup');g.innerHTML='';
   fields.forEach(f=>{const d=document.createElement('div');d.className='brow';d.innerHTML=`<div><div class="blbl">${f.l}</div><div class="bdesc">${f.d}</div></div><input type="number" step="0.01" class="binp" id="b_${f.k}" value="${BENCH[f.k]}">`;g.appendChild(d);});
 }
-
-function saveBench() {
-  ['cpp_good','cpp_ok','ctr_good','ctr_ok','high_spend','kill'].forEach(k=>{const el=document.getElementById('b_'+k);if(el)BENCH[k]=+el.value;});
-  localStorage.setItem('bench',JSON.stringify(BENCH));
-  showToast('บันทึก Benchmarks แล้ว','ok');
-  if(CAMPS.length) renderDashboard();
-}
+function saveBench(){['cpp_good','cpp_ok','ctr_good','ctr_ok','high_spend','kill'].forEach(k=>{const el=document.getElementById('b_'+k);if(el)BENCH[k]=+el.value;});localStorage.setItem('bench',JSON.stringify(BENCH));showToast('บันทึก Benchmarks แล้ว','ok');if(CAMPS.length)renderDashboard();}
 
 function openModal(id){document.getElementById('modal-'+id).classList.add('open');}
 function closeModal(){document.querySelectorAll('.modal-bg').forEach(m=>m.classList.remove('open'));}
 
-function startCD(){
-  clearCD(); CD_SEC=300; document.getElementById('cd').style.display='flex';
-  CD_IV=setInterval(()=>{CD_SEC--;document.getElementById('prog').style.width=(CD_SEC/300*100)+'%';const m=Math.floor(CD_SEC/60),s=String(CD_SEC%60).padStart(2,'0');document.getElementById('cdt').textContent=m+':'+s;if(CD_SEC<=0){clearCD();fetchAll();}},1000);
-}
+function startCD(){clearCD();CD_SEC=300;document.getElementById('cd').style.display='flex';CD_IV=setInterval(()=>{CD_SEC--;document.getElementById('prog').style.width=(CD_SEC/300*100)+'%';const m=Math.floor(CD_SEC/60),s=String(CD_SEC%60).padStart(2,'0');document.getElementById('cdt').textContent=m+':'+s;if(CD_SEC<=0){clearCD();fetchAll();}},1000);}
 function clearCD(){clearInterval(CD_IV);document.getElementById('prog').style.width='100%';}
 
+function getAct(actions,type){return +(actions?.find(a=>a.action_type===type)?.value||0);}
+function getActVal(vals,type){return +(vals?.find(a=>a.action_type===type)?.value||0);}
 function thb(n){return '฿'+Math.round(n).toLocaleString('th-TH');}
 function pct(n){return (n*100).toFixed(2)+'%';}
 function fmtK(n){if(n>=1e6)return (n/1e6).toFixed(1)+'M';if(n>=1000)return Math.round(n/1000)+'K';return String(Math.round(n));}
-function setDot(s){const d=document.getElementById('liveDot');d.className='dot'+(s!=='ok'?' '+s:'');}
-function setSbar(type,msg){const b=document.getElementById('sbar'),t=document.getElementById('sbarTxt');b.className='sbar '+type;t.textContent=msg;}
+function setDot(s){document.getElementById('liveDot').className='dot'+(s!=='ok'?' '+s:'');}
+function setSbar(type,msg){document.getElementById('sbar').className='sbar '+type;document.getElementById('sbarTxt').textContent=msg;}
 let toastT=null;
 function showToast(msg,type='ok'){const el=document.getElementById('toast');el.innerHTML=`<div class="t${type==='ok'?'ok':'err'}">${msg}</div>`;el.style.display='block';clearTimeout(toastT);toastT=setTimeout(()=>el.style.display='none',3500);}
 
-// Init AP settings display
-document.getElementById('apThresholdDisplay').textContent = thb(AP.threshold);
-document.getElementById('apLeadsDisplay').textContent = AP.leads_min;
+// INIT
+initDates();
 renderBench();
-
-// Show existing AP log banner if any
-if(AP_LOG.length > 0) {
-  renderAPDashBanner(AP_LOG.slice(0,3));
-  document.getElementById('apBadge').style.display='block';
-}
-
 fetchAll();
 </script>
 </body>
